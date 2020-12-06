@@ -1,0 +1,18 @@
+.menu-item {
+    padding: 0 40px;
+    margin: 5px 10px;
+    user-select: none;
+    cursor: pointer;
+    border: none;
+  }
+  /* .menu-item-wrapper.active {
+    border: 1px #2789E1;
+  } */
+  .menu-item.active {
+    border: 2px #2789E1 solid;
+  }
+   
+  .scroll-menu-arrow {
+    padding: 20px;
+    cursor: pointer;
+  }

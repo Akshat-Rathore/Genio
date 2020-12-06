@@ -1,0 +1,11 @@
+@media only screen and (max-width:600px){
+    .main-css{
+        margin-left: 50px;
+        margin-right:50px;
+    }
+    .connections{
+        width: 100%;
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}
