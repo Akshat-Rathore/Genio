@@ -16,6 +16,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import LinkIcon from '@material-ui/icons/Link';
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   root:{
@@ -66,6 +70,30 @@ const useStyles = makeStyles((theme) => ({
     padding:"15px",
     paddingLeft:"20px",
     paddingBottom:"20px"
+  },
+  share:{
+    marginTop:"50px",
+    marginLeft:"40px",
+    width:"20%",
+    marginRight:"12%",
+    minWidth:"280px !important",
+    [theme.breakpoints.down('md')]:{
+      marginRight:"5%",
+    },
+    [theme.breakpoints.down('sm')]:{
+      marginLeft:"9%",
+      marginRight:"7%",
+      width:"100%",
+      marginTop:-40,
+      marginBottom:20
+    },
+    [theme.breakpoints.down('xs')]:{
+      width:"100%",
+      marginLeft:"5%",
+      marginRight:"5%",
+      marginTop:-40,
+      marginBottom:20
+    },
   },
   connections:{
     marginTop:"50px",
@@ -122,7 +150,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent:"center",
     alignItems:"center",
     flexDirection:"column",
-    height:"100%",
     [theme.breakpoints.down("xs")]:{
       height:"auto",
       alignItems:"flex-start"
@@ -182,6 +209,11 @@ const useStyles = makeStyles((theme) => ({
   inline: {
     display: 'inline',
   },
+  hide:{
+    [theme.breakpoints.down('sm')]:{
+      display:"none",
+    }
+  }
   
 }));
 
@@ -266,7 +298,20 @@ const App = () =>{
               </Grid>
             </Paper>
           </Grid>
-
+          <Box component = {Grid} display ={{ lg:"none",md:"none"}}>
+              <Paper>
+                <Grid container direction = {"column"} style = {{"marginBottom":"15px","padding":"10px"}}>
+                  <Grid item style = {{"margin":"auto","paddingBottom":"10px"}}>
+                    <Typography variant = "h7" style = {{"color":"#2789E1"}}>Share your website</Typography>
+                  </Grid>
+                  <Grid item style = {{"margin":"auto"}}>
+                    <Button><WhatsAppIcon style = {{"color":"#2789E1"}}/></Button>
+                    <Button><FacebookIcon style = {{"color":"#2789E1","paddingLeft":"10px","paddingRight":"10px"}}/></Button>
+                    <Button><LinkIcon style = {{"color":"#2789E1"}}/></Button>
+                  </Grid>
+                </Grid>
+              </Paper>
+          </Box>
           <Grid>
             <Paper item className = {classes.about}> 
               <Grid container spacing = {2} direction = {"column"} wrap="nowrap" zeroMinWidth>
@@ -315,7 +360,6 @@ const App = () =>{
                     <Typography variant = "h5" style = {{"color":"#2789E1","font-weight":"600"}}>Assignments</Typography>
                   </Grid>
                 </Grid>
-
                 <Grid item>
                   <Slider/>
                 </Grid>
@@ -327,63 +371,83 @@ const App = () =>{
         </Grid>
 
         <Grid item className = {classes.connections}>
-          <Paper>
-            <Grid container direction = "column" style = {{"alignItems":"center"}}>
-              <Grid item style = {{"alignSelf":"center","margin":"10px"}}>
-                <Typography variant = "h7" style = {{"color":"#2789E1"}}>Connect with new friends!</Typography>
-              </Grid>
-              <Grid item>
-                <List className={classes.root1}>
-                  <ListItem alignItems="flex-start">
-                    <ListItemAvatar>
-                      <Avatar alt="Remy Sharp" src="/assets/images/myimg.jpg" />
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary="Anindya Sikdar"
-                      secondary={
-                        <React.Fragment>
-                          {"I'll be in your neighborhood doing errands this…"}
-                        </React.Fragment>
-                      }
-                    />
-                    <Button><PersonAddIcon style = {{"color":"#2789E1"}}/></Button>
-                  </ListItem>
-                  <Divider variant="inset" component="li" />
-                  <ListItem alignItems="flex-start">
-                    <ListItemAvatar>
-                      <Avatar alt="Remy Sharp" src="/assets/images/myimg.jpg" />
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary="Anindya Sikdar"
-                      secondary={
-                        <React.Fragment>
-                          {"I'll be in your neighborhood doing errands this…"}
-                        </React.Fragment>
-                      }
-                    />
-                    <Button><PersonAddIcon style = {{"color":"#2789E1"}}/></Button>
-                  </ListItem>
-                  <Divider variant="inset" component="li" />
-                  <ListItem alignItems="flex-start">
-                    <ListItemAvatar>
-                      <Avatar alt="Remy Sharp" src="/assets/images/myimg.jpg" />
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary="Anindya Sikdar"
-                      secondary={
-                        <React.Fragment>
-                          {"I'll be in your neighborhood doing errands this…"}
-                        </React.Fragment>
-                      }
-                    />
-                    <Button><PersonAddIcon style = {{"color":"#2789E1"}}/></Button>
-                  </ListItem>
-                </List>
-              </Grid>
-            </Grid>
-          </Paper>
-        </Grid>
+          <Grid container direction = {"column"}>
+            <Box component = {Grid} className = {classes.hide}>
+              <Paper>
+                <Grid container direction = {"column"} style = {{"marginBottom":"15px","padding":"10px"}}>
+                  <Grid item style = {{"margin":"auto","paddingBottom":"10px"}}>
+                    <Typography variant = "h7" style = {{"color":"#2789E1"}}>Share your website</Typography>
+                  </Grid>
+                  <Grid item style = {{"margin":"auto"}}>
+                    <Button><WhatsAppIcon style = {{"color":"#2789E1"}}/></Button>
+                    <Button><FacebookIcon style = {{"color":"#2789E1","paddingLeft":"10px","paddingRight":"10px"}}/></Button>
+                    <Button><LinkIcon style = {{"color":"#2789E1"}}/></Button>
+                  </Grid>
+                </Grid>
+              </Paper>
+            </Box>
 
+            <Grid item>
+              <Paper>
+                <Grid container direction = "column" style = {{"alignItems":"center"}}>
+                  <Grid item style = {{"alignSelf":"center","margin":"10px"}}>
+                    <Typography variant = "h7" style = {{"color":"#2789E1"}}>Connect with new friends!</Typography>
+                  </Grid>
+                  <Grid item>
+                    <List className={classes.root1}>
+                      <ListItem alignItems="flex-start">
+                        <ListItemAvatar>
+                          <Avatar alt="Remy Sharp" src="/assets/images/myimg.jpg" />
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary="Anindya Sikdar"
+                          secondary={
+                            <React.Fragment>
+                              {"I'll be in your neighborhood doing errands this…"}
+                            </React.Fragment>
+                          }
+                        />
+                        <Button><PersonAddIcon style = {{"color":"#2789E1"}}/></Button>
+                      </ListItem>
+                      <Divider variant="inset" component="li" />
+                      <ListItem alignItems="flex-start">
+                        <ListItemAvatar>
+                          <Avatar alt="Remy Sharp" src="/assets/images/myimg.jpg" />
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary="Anindya Sikdar"
+                          secondary={
+                            <React.Fragment>
+                              {"I'll be in your neighborhood doing errands this…"}
+                            </React.Fragment>
+                          }
+                        />
+                        <Button><PersonAddIcon style = {{"color":"#2789E1"}}/></Button>
+                      </ListItem>
+                      <Divider variant="inset" component="li" />
+                      <ListItem alignItems="flex-start">
+                        <ListItemAvatar>
+                          <Avatar alt="Remy Sharp" src="/assets/images/myimg.jpg" />
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary="Anindya Sikdar"
+                          secondary={
+                            <React.Fragment>
+                              {"I'll be in your neighborhood doing errands this…"}
+                            </React.Fragment>
+                          }
+                        />
+                        <Button><PersonAddIcon style = {{"color":"#2789E1"}}/></Button>
+                      </ListItem>
+                    </List>
+                  </Grid>
+                </Grid>
+              </Paper>
+            </Grid>
+
+          </Grid>
+        </Grid>
+        
       </Grid>
       <Divider variant="middle"/>
       <Footer/>
